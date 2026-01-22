@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage"
+             BackgroundColor="#F0F2F5">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
+
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                <Label Text="🍽️" 
+                       FontSize="60" 
+                       HorizontalOptions="Center"/>
+                <Label Text="Yemekhane Asistanı" 
+                       FontSize="28" 
+                       FontAttributes="Bold" 
+                       TextColor="#1A1A1A" 
+                       HorizontalOptions="Center" />
+
+                <Label Text="Rezervasyonunu Unutma" 
+                       FontSize="14" 
+                       TextColor="Gray" 
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Frame BackgroundColor="White" 
+                   CornerRadius="15" 
+                   HasShadow="True" 
+                   BorderColor="Transparent"
+                   Padding="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🎓 Üniversiteniz" FontAttributes="Bold" TextColor="#333"/>
+                    <Picker x:Name="UniversityPicker" 
+                            Title="Seçiniz" 
+                            TextColor="#2c3e50"
+                            TitleColor="Gray">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Dokuz Eylül Üniversitesi</x:String>
+                                <x:String>Ege Üniversitesi</x:String>
+                                <x:String>İzmir Yüksek Teknoloji Enstitüsü</x:String>
+                                <x:String>İzmir Katip Çelebi Üniversitesi</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White" 
+                   CornerRadius="15" 
+                   HasShadow="True" 
+                   BorderColor="Transparent"
+                   Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="⏰ Hatırlatma Ayarları" FontAttributes="Bold" TextColor="#333"/>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="Gün" FontSize="12" TextColor="Gray"/>
+                            <Picker x:Name="DayPicker" Title="Gün" TextColor="#2c3e50">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Pazartesi</x:String>
+                                        <x:String>Salı</x:String>
+                                        <x:String>Çarşamba</x:String>
+                                        <x:String>Perşembe</x:String>
+                                        <x:String>Cuma</x:String>
+                                        <x:String>Cumartesi</x:String>
+                                        <x:String>Pazar</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="Saat" FontSize="12" TextColor="Gray"/>
+                            <TimePicker x:Name="TimePicker" TextColor="#2c3e50" Format="HH:mm"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Kaydet ve Kur" 
+                    Clicked="OnSaveButtonClicked" 
+                    BackgroundColor="#4A90E2" 
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    CornerRadius="25" 
+                    HeightRequest="55"
+                    Shadow="{Shadow Brush=Black, Offset='0,5', Opacity=0.2}"/>
+
+            <Button Text="🌐 Menüyü İncele" 
+                    Clicked="OnOpenWebClicked" 
+                    BackgroundColor="White" 
+                    TextColor="#4A90E2" 
+                    BorderColor="#4A90E2"
+                    BorderWidth="2"
+                    FontAttributes="Bold"
+                    CornerRadius="25" 
+                    HeightRequest="55"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

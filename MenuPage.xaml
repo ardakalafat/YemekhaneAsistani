@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MenuPage"
+             BackgroundColor="#F0F2F5"
+             Title="Haftalık Menü">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Border Grid.Row="0" BackgroundColor="#4A90E2" StrokeThickness="0" Padding="20">
+            <VerticalStackLayout>
+                <Label Text="🥗 Haftalık Menü" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                <Label Text="Dokuz Eylül Üniversitesi" FontSize="14" TextColor="#E0E0E0" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <ActivityIndicator x:Name="YukleniyorIcon" IsRunning="True" Color="#4A90E2" VerticalOptions="Center" Grid.Row="1"/>
+
+        <CollectionView x:Name="YemekListesi" Grid.Row="1" Margin="0,10,0,0">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="20,0" StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="White" Padding="10">
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Offset="2,2" Opacity="0.1" />
+                        </Border.Shadow>
+
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="{Binding Gun}" 
+                                   FontSize="18" 
+                                   FontAttributes="Bold" 
+                                   TextColor="#4A90E2" 
+                                   HorizontalOptions="Center"/>
+
+                            <BoxView HeightRequest="1" Color="#EEEEEE" />
+
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding Corba}" FontSize="16" TextColor="#333" HorizontalOptions="Center"/>
+                                <Label Text="{Binding AnaYemek}" FontSize="18" FontAttributes="Bold" TextColor="#D35400" HorizontalOptions="Center"/>
+                                <Label Text="{Binding YanYemek}" FontSize="16" TextColor="#333" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+
+                            <Label Text="{Binding Kalori}" FontSize="12" TextColor="Gray" HorizontalOptions="End" FontAttributes="Italic"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
